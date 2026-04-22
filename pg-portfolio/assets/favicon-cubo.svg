@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Fabrestack cubo">
+  <g fill="#F2500D" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">
+    <polygon points="80,14 138,44 80,74 22,44" />
+    <polygon points="22,44 22,106 80,136 80,74" />
+    <polygon points="138,44 138,106 80,136 80,74" />
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.9">
+    <line x1="80" y1="14" x2="80" y2="74" />
+    <line x1="51" y1="29" x2="109" y2="59" />
+    <line x1="51" y1="61" x2="109" y2="91" />
+    <line x1="51" y1="59" x2="51" y2="121" />
+    <line x1="109" y1="59" x2="109" y2="121" />
+  </g>
+</svg>

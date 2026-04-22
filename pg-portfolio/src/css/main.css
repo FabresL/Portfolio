@@ -1,0 +1,275 @@
+/* ── Variaveis ───────────────────────────── */
+:root {
+  --fundo:              #F2500D;
+  --texto-principal:    #ffffff;
+  --texto-suave:        rgba(255, 255, 255, 0.32);
+  --borda:              rgba(255, 255, 255, 0.09);
+  --fundo-hover:        rgba(255, 255, 255, 0.04);
+  --transicao-suave:    cubic-bezier(0.16, 1, 0.3, 1);
+  --largura-maxima:     640px;
+}
+
+/* ── Reset ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  background: var(--fundo);
+  color: var(--texto-principal);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Textura de ruido ────────────────────── */
+.ruido {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ── Cabecalho ───────────────────────────── */
+.cabecalho {
+  width: 100%;
+  max-width: var(--largura-maxima);
+  padding: 0 1.5rem 0;
+  margin-bottom: -20px;
+  display: flex;
+  justify-content: center;
+}
+
+.logomarca {
+  width: clamp(170px, 20vw, 160px);
+  height: auto;
+  margin-top: -14px;
+  display: block;
+  transition: transform 0.4s var(--transicao-suave);
+}
+
+.logomarca:hover { transform: scale(1.03); }
+
+/* ── Rotulo das secoes ───────────────────── */
+.rotulo-secao {
+  width: 100%;
+  max-width: var(--largura-maxima);
+  padding: 0 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.rotulo-secao > div {
+  width: 100%;
+  border: 1.6px solid var(--borda);
+  border-radius: 8px;
+  padding: 0.7rem 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.rotulo-secao span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  letter-spacing: 0.4em;
+  color: var(--texto-principal);
+  text-transform: uppercase;
+}
+
+/* ── Lista de links ──────────────────────── */
+.lista-links {
+  width: 100%;
+  max-width: var(--largura-maxima);
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartao {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 1.4rem;
+  text-decoration: none;
+  color: var(--texto-principal);
+  background: var(--fundo);
+  border: 1.6px solid var(--borda);
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.35s var(--transicao-suave), padding-left 0.35s var(--transicao-suave);
+}
+
+.cartao:first-child { border-radius: 10px 10px 0 0; }
+.cartao:last-child  { border-bottom: 1.6px solid var(--borda); border-radius: 0 0 10px 10px; }
+
+.cartao::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--texto-principal);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s var(--transicao-suave);
+}
+
+.cartao:hover { background: var(--fundo-hover); padding-left: 2rem; }
+.cartao:hover::before { transform: scaleY(1); }
+.cartao:hover .cartao-titulo { letter-spacing: 0.05em; }
+.cartao:hover .cartao-seta { transform: translateX(5px); color: var(--texto-principal); }
+
+.cartao-indice {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--texto-suave);
+  min-width: 22px;
+}
+
+.cartao-titulo {
+  flex: 1;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  font-weight: 400;
+  transition: letter-spacing 0.35s var(--transicao-suave);
+}
+
+.cartao-seta {
+  font-size: 1rem;
+  color: var(--texto-suave);
+  transition: transform 0.35s var(--transicao-suave), color 0.35s var(--transicao-suave);
+}
+
+/* ── Rodape ──────────────────────────────── */
+.rodape {
+  margin-top: auto;
+  padding: 2.5rem 1rem;
+  font-size: 0.72rem;
+  color: var(--texto-suave);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.rodape strong {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* ── Botao fixo do WhatsApp ──────────────── */
+.botao-whatsapp {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  transition: transform 0.3s var(--transicao-suave), box-shadow 0.3s var(--transicao-suave);
+}
+
+.botao-whatsapp svg {
+  width: 30px;
+  height: 30px;
+  fill: #ffffff;
+}
+
+.botao-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.65);
+}
+
+/* Dica do botao */
+.tooltip-whatsapp {
+  position: absolute;
+  right: 66px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.botao-whatsapp:hover .tooltip-whatsapp {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Anel pulsante */
+.botao-whatsapp::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  animation: pulsoWhatsapp 2s ease-out infinite;
+}
+
+@keyframes pulsoWhatsapp {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* ── Animacao de entrada ─────────────────── */
+.animar { opacity: 1; }
+.animar.animar-entrada { animation: subirSuave 0.65s var(--transicao-suave) both; }
+
+@keyframes subirSuave {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ondulacaoClique {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* ── Responsivo ──────────────────────────── */
+@media (max-width: 480px) {
+  .cabecalho { padding: 0 1rem 0; margin-bottom: -10px; }
+  .logomarca { width: clamp(150px, 52vw, 220px); margin-top: -10px; }
+  .cartao { padding: 1.2rem 1rem; }
+  .cartao:hover { padding-left: 1.6rem; }
+  .rotulo-secao, .lista-links { padding: 0 1rem; }
+  .botao-whatsapp { bottom: 1.2rem; right: 1.2rem; width: 50px; height: 50px; }
+  .botao-whatsapp svg { width: 26px; height: 26px; }
+}
+  .cartao { padding: 1.2rem 1rem; }
+  .cartao:hover { padding-left: 1.6rem; }
+  .rotulo-secao, .lista-links { padding: 0 1rem; }
+  .botao-whatsapp { bottom: 1.2rem; right: 1.2rem; width: 50px; height: 50px; }
+  .botao-whatsapp svg { width: 26px; height: 26px; }
+
+/* ── Icones nos cartoes de contato ───────── */
+.cartao-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  min-width: 22px;
+  color: var(--texto-suave);
+  transition: color 0.35s var(--transicao-suave);
+}
+
+.cartao-icone svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cartao:hover .cartao-icone { color: var(--texto-principal); }

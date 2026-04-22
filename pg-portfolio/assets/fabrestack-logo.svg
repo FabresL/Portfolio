@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 240" role="img" aria-label="Fabrestack logo">
+  <defs>
+    <style>
+      .mark, .word { fill: #ffffff; }
+      .word { font-family: "Poppins", "Montserrat", "Segoe UI", sans-serif; font-size: 126px; font-weight: 500; letter-spacing: 1px; }
+      .strong { font-weight: 800; }
+    </style>
+  </defs>
+
+  <g class="mark" transform="translate(12 28)">
+    <polygon points="70,0 130,32 70,64 10,32" />
+    <polygon points="10,32 10,98 70,130 70,64" />
+    <polygon points="130,32 130,98 70,130 70,64" />
+
+    <polyline points="40,16 100,48 100,114" fill="none" stroke="#F2500D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+    <polyline points="40,16 40,82 100,114" fill="none" stroke="#F2500D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+    <line x1="70" y1="0" x2="70" y2="64" stroke="#F2500D" stroke-width="4" opacity="0.25"/>
+  </g>
+
+  <text class="word" x="180" y="158">
+    Fabre<tspan class="strong">stack</tspan><tspan class="strong">.</tspan>
+  </text>
+</svg>
