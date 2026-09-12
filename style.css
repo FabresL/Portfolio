@@ -177,6 +177,8 @@ li{
     right: 0;
 }
 footer{
+    margin-top: -25px;
+    margin-bottom: 20px;
     text-align: center;
 }
 footer p{
