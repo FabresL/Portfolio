@@ -177,8 +177,6 @@ li{
     right: 0;
 }
 footer{
-    margin-top: -25px;
-    margin-bottom: 20px;
     text-align: center;
 }
 footer p{
@@ -214,10 +212,20 @@ footer p{
 body.dark .icone-social{
     filter: invert(1);
 }
-.rede p{
-    margin: 0;
+.rede a{
+    color: #000000;
+    text-decoration: none;
     font-size: 13px;
     word-break: break-word;
+}
+body.dark .rede a{
+    color: #ffffff;
+}
+.rede a:hover{
+    text-decoration: underline;
+}
+.rede img{
+    cursor: pointer;
 }
 @media (max-width: 650px){
     body{
@@ -294,7 +302,7 @@ body.dark .icone-social{
     .icone-social.github{
         width: 30px;
     }
-    .rede p{
+    .rede a{
         font-size: 10px;
     }
 }
